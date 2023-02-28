@@ -1,0 +1,58 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Small Rod Hub", "DarkTheme")
+
+--Credits
+local Credits = Window:NewTab("Credits")
+local Discord = Credits:NewSection("Discord")
+
+Discord:NewLabel("Owner - PointCrit1kal#7599")
+
+--Player
+local Player = Window:NewTab("Player")
+local Auto = Player:NewSection("Auto")
+local Adjustable = Player:NewSection("Adjustable")
+
+Auto:NewToggle("Speed", "Be faster Speed: 100", function(state)
+    if state then
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+    else
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    end
+end)
+
+Auto:NewToggle("Jump Power", "Jump higher Jump Power: 50", function(state)
+    if state then
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 100
+    else
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    end
+end)
+
+Adjustable:NewSlider("Speed", "Adjust your Speed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+Adjustable:NewSlider("Jump Power", "Adjust your Jump Power", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+--GUIs
+local GUIs = Window:NewTab("GUIs")
+local Admin = GUIs:NewSection("Admin")
+local Other = GUIs:NewSection("Other")
+
+Admin:NewButton("Infinite Yield", "Gives FE admin commands.", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+end)
+
+Other:NewButton("Chat Spoofer", "Let's you chat as someone else.", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/djBfk8Li'),true))()
+end)
+
+Other:NewButton("Fly", "Fly as you wish.", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Nicuse/RobloxScripts/main/BypassedFly.lua"))() 
+
+    Fly(true)
+end)
+
+--W me lol
